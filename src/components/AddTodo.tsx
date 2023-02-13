@@ -10,9 +10,9 @@ const AddTodo: React.FC<IProps> = ({ setTasks }) => {
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    let input: string = inputRef.current?.value;
-    console.log(input);
+    let input: string = inputRef.current!.value;
     setTasks((prvState) => [...prvState, { id: "t2", title: input }]);
+    inputRef.current!.value = "";
   };
 
   return (
