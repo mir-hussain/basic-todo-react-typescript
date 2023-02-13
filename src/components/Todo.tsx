@@ -6,7 +6,7 @@ const Todo = () => {
   const [todos, setTodos] = useState([{ id: "t1", title: "Some work" }]);
   return (
     <div className='bg-white p-5 rounded-md shadow-md w-full max-w-3xl'>
-      <AddTodo />
+      <AddTodo setTasks={setTodos} data={todos} />
       <Todos data={todos} />
     </div>
   );
