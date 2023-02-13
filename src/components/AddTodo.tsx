@@ -2,7 +2,7 @@ import React from "react";
 
 const AddTodo = () => {
   return (
-    <div className='bg-white p-5 rounded-md shadow-md w-full max-w-3xl'>
+    <div>
       <p className='mb-2 text-gray-400 text-sm'>Add Todos</p>
       <div className='bg-gradient-to-r h-11 w-full from-indigo-500 via-purple-500 to-pink-500 p-1 rounded-md inset-0 '>
         <input
