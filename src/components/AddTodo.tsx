@@ -2,7 +2,9 @@ import React, { FormEvent, SetStateAction, useRef } from "react";
 
 interface IProps {
   data: { id: string; title: string }[];
-  setTasks: React.Dispatch<SetStateAction<{ id: string; title: string }[]>>;
+  setTasks: React.Dispatch<
+    SetStateAction<{ id: string; title: string; status: string }[]>
+  >;
 }
 
 const AddTodo: React.FC<IProps> = ({ setTasks }) => {
@@ -11,7 +13,11 @@ const AddTodo: React.FC<IProps> = ({ setTasks }) => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     let input: string = inputRef.current!.value;
-    setTasks((prvState) => [...prvState, { id: "t2", title: input }]);
+    const id = Math.random().toString(36).substring(2, 8);
+    setTasks((prvState) => [
+      ...prvState,
+      { id, title: input, status: "pending" },
+    ]);
     inputRef.current!.value = "";
   };
 

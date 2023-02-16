@@ -6,10 +6,13 @@ interface IProps {
   data: {
     id: string;
     title: string;
+    status: string;
   }[];
+  onDelete: (id: string) => void;
+  onDone: (id: string) => void;
 }
 
-const Todos: React.FC<IProps> = ({ data }) => {
+const Todos: React.FC<IProps> = ({ data, onDelete, onDone }) => {
   return (
     <div>
       {data.map(({ id, title }) => (
@@ -17,10 +20,18 @@ const Todos: React.FC<IProps> = ({ data }) => {
           <h1 key={id} className='flex-auto'>
             {title}
           </h1>
-          <button title='Done' className='bg-green-500 p-1 rounded'>
+          <button
+            onClick={() => onDone(id)}
+            title='Done'
+            className='bg-green-500 p-1 rounded'
+          >
             <BiCheck size='20' color='white' />
           </button>
-          <button title='Delete' className='bg-red-500 p-1 rounded'>
+          <button
+            onClick={() => onDelete(id)}
+            title='Delete'
+            className='bg-red-500 p-1 rounded'
+          >
             <AiOutlineDelete size='20' color='white' />
           </button>
         </div>
