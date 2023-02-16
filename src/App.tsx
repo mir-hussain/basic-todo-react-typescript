@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import AddTodo from "./components/AddTodo";
 import Todo from "./components/Todo";
-import Todos from "./components/Todos";
 
 function App() {
   return (
